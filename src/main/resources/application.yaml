@@ -24,3 +24,15 @@ server:
 logging:
   level:
     root: info
+
+    cron:
+      expression: "0 0 0 * * ?"
+
+    batch:
+     size: 100
+
+     async:
+       pool:
+         core-size: 10
+         max-size: 20
+         queue-capacity: 100

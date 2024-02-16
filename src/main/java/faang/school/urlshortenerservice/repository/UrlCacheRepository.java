@@ -1,6 +1,7 @@
 package faang.school.urlshortenerservice.repository;
 
 import faang.school.urlshortenerservice.model.Hash;
+import faang.school.urlshortenerservice.model.Url;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
@@ -12,4 +13,6 @@ public interface UrlCacheRepository extends CrudRepository<Hash, String> {
     @Transactional
     @Query(value = "INSERT INTO url_table (url, hash) VALUES (:url, :hash)", nativeQuery = true)
     void saveUrlWithHash(String url, String hash);
+
+    String findByHash(String hash);
 }

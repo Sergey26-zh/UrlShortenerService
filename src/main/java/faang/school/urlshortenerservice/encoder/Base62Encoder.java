@@ -1,7 +1,10 @@
 package faang.school.urlshortenerservice.encoder;
 
+import org.springframework.stereotype.Component;
+
 import java.util.List;
 
+@Component
 public class Base62Encoder {
     private static final String BASE62_CHARS = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 
@@ -10,8 +13,6 @@ public class Base62Encoder {
                 .map(this::encodeBase62)
                 .toList();
     }
-
-    // package private modifier for comfortable testing
 
     String encodeBase62(long number) {
         StringBuilder sb = new StringBuilder();
